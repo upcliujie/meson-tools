@@ -1,0 +1,56 @@
+{
+	"name": "meson-tools",
+	"displayName": "Meson Tools",
+	"description": "Extended Meson support in Visual Studio Code",
+	"version": "0.0.1",
+	"publisher": "upcliuje",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/upcliujie/meson-tools"
+	},
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/upcliujie/meson-tools",
+	"keywords": [
+		"meson",
+		"tools",
+		"build",
+		"c++"
+	  ],
+	"categories": [
+		"Other",
+		"Debuggers"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.mesonbuild",
+				"title": "Meson Build",
+				"icon": "$(settings-gear)",
+				"when": "editorFocus"
+			}
+		]
+	},
+	"icon": "",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint \"src/**/*.ts\"",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^18",
+		"@types/vscode": "^1.73.0",
+		"@typescript-eslint/eslint-plugin": "^7.14.0",
+		"@typescript-eslint/parser": "^7.14.0",
+		"eslint": "^8.26.0",
+		"typescript": "^5.5.2"
+	},
+	"dependencies": {
+		"vscode-cpptools": "^6.1.0"
+	}
+}

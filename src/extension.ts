@@ -1,4 +1,5 @@
-import * as vscode from 'vscode';
+import { CppConfigurationProvider} from './cpptools';
+
 import * as cpt from 'vscode-cpptools';
 import * as vscode from 'vscode';
 
@@ -39,4 +40,11 @@ export function activate(context: vscode.ExtensionContext) {
 	statusButton.command = 'meson.debugTarget';
 	statusButton.tooltip = 'Debug Selected Target';
 	statusButton.show();
+
+	// Register the custom configuration provider
+	const provider = new CppConfigurationProvider();
+	cpt.getCppToolsApi(cpt.Version.latest).then((api) => {
+		api?.registerCustomConfigurationProvider(provider);
+	});
+
 }

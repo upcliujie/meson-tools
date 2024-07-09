@@ -23,15 +23,18 @@
 		"Other",
 		"Debuggers"
 	],
-	"activationEvents": [],
+	"activationEvents": [
+		"workspaceContains:meson.build",
+		"workspaceContains:*/meson.build",
+		"workspaceContains:*/*/meson.build",
+		"workspaceContains:*/*/*/meson.build"
+	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.mesonbuild",
-				"title": "Meson Build",
-				"icon": "$(settings-gear)",
-				"when": "editorFocus"
+				"command": "meson.debugTarget",
+				"title": "Debug Selected Target"
 			}
 		]
 	},
